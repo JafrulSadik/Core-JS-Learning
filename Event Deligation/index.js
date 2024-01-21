@@ -1,19 +1,20 @@
-let a = {};
+let list = document.querySelector('.list')
+let btn = document.querySelector('.btn')
 
-function process(){
-    console.log(a);
+list.addEventListener("click",(event)=>{
+    
 
-    let res = fetch('https://jsonplaceholder.typicode.com/posts').then(function (response) {
-        return response.json();
-    }).then(function (data) {
-        return data;
-    }).catch(function (error) {
-        console.warn(error);
-    });
+    console.log(event.target);
 
-    console.log(res, "not ok");
-    console.log("hello");
+    if(event.target.matches('li')){
+        event.target.style.backgroundColor = 'teal'
+    }
+})
 
-}
 
-process()
+btn.addEventListener('click', ()=>{
+    let li = document.createElement('li')
+    li.innerText = "PHP"
+    list.appendChild(li)
+})
+
